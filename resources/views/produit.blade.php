@@ -5,7 +5,7 @@
  <title>Produits</title>
  <style>
  body {
- font-family: Arial;
+     font-family: Arial, serif;
  max-width: 800px;
  margin: 50px auto;
  padding: 20px;

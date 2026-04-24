@@ -1,9 +1,7 @@
 <?php
-
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
-
 // Pages principales
 Route::get('/', [PageController::class, 'home']);
 Route::get('/home', [PageController::class, 'home']);
@@ -11,7 +9,6 @@ Route::get('/about', [PageController::class, 'about']);
 Route::get('/services', [PageController::class, 'services']);
 Route::get('/contact', [PageController::class, 'contact']);
 Route::resource('tasks', TaskController::class);
-// Blog
 Route::get('/blog', [PageController::class, 'blog']);
 Route::get('/blog/{id}', [PageController::class, 'article'])->where('id', '[0-9]+');
 

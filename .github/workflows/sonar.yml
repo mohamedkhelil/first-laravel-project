@@ -24,6 +24,19 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress
 
+      - name: Prepare Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate --force
+
+      - name: Setup database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
+
+      - name: Run migrations
+        run: php artisan migrate --force
+
       - name: Run tests with coverage
         run: php artisan test --coverage-clover=coverage.xml
 
@@ -31,3 +44,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.php.coverage.reportPaths=coverage.xml

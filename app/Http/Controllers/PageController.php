@@ -23,7 +23,7 @@ class PageController extends Controller
     public function services()
     {
         $services = [
-            ['nom' => 'Développement Web', 'prix' => '1500€' ],
+            ['nom' => 'Développement Web', 'prix' => '1500€'],
             ['nom' => 'Design UI/UX', 'prix' => '1800€'],
             ['nom' => 'power bi', 'prix' => '500€']
         ];
@@ -44,28 +44,27 @@ class PageController extends Controller
     {
         $articles = [
             [
-                'id'=>1,
-                'titre'=>'Ordinateur Portable',
-                'auteur'=>'Dell',
-                'date'=>'2026-03-01',
-                'extrait'=>'PC portable puissant pour développement et gaming.'
+                'id' => 1,
+                'titre' => 'Ordinateur Portable',
+                'auteur' => 'Dell',
+                'date' => '2026-03-01',
+                'extrait' => 'PC portable puissant pour développement et gaming.'
             ],
             [
-                'id'=>2,
-                'titre'=>'Carte Graphique RTX',
-                'auteur'=>'Nvidia',
-                'date'=>'2026-03-02',
-                'extrait'=>'Carte graphique haute performance pour IA et jeux.'
+                'id' => 2,
+                'titre' => 'Carte Graphique RTX',
+                'auteur' => 'Nvidia',
+                'date' => '2026-03-02',
+                'extrait' => 'Carte graphique haute performance pour IA et jeux.'
             ],
             [
-                'id'=>3,
-                'titre'=>'Disque SSD 1TB',
-                'auteur'=>'Samsung',
-                'date'=>'2026-03-03',
-                'extrait'=>'Stockage ultra rapide pour ordinateur.'
+                'id' => 3,
+                'titre' => 'Disque SSD 1TB',
+                'auteur' => 'Samsung',
+                'date' => '2026-03-03',
+                'extrait' => 'Stockage ultra rapide pour ordinateur.'
             ]
         ];
-
         return view('blog', compact('articles'));
     }
 
@@ -76,7 +75,11 @@ class PageController extends Controller
             2 => ['titre' => 'Article 2', 'auteur' => 'Chayma', 'contenu' => 'Contenu complet du deuxième article...'],
             3 => ['titre' => 'Article 3', 'auteur' => 'Amine', 'contenu' => 'Contenu complet du troisième article...']
         ];
-        if (!isset($contenus[$id])) abort(404);
+
+        if (!isset($contenus[$id])) {
+            abort(404);
+        }
+
         return view('article', ['article' => $contenus[$id]]);
     }
 
@@ -95,7 +98,11 @@ class PageController extends Controller
     public function equipe($membre = null)
     {
         $membres = ['Mohamed', 'Chayma', 'Amine', 'David', 'Emma'];
-        if ($membre) return "Membre : $membre";
+
+        if ($membre) {
+            return "Membre : $membre";
+        }
+
         return "Toute l'équipe : " . implode(', ', $membres);
     }
 }

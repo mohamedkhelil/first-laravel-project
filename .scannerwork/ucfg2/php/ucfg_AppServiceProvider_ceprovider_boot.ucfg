@@ -1,0 +1,30 @@
+
+&app\providers\appserviceprovider::bootL
+BC:\Users\21656\Music\projects\app\Providers\AppServiceProvider.php ("1*>
+2
+AppServiceProvider.php"
+ (
+implicit return*ÿ
+1 (Ÿ
+œ
+ (	
+%1"__declareFunction*w
+
+__unknown_file ([Y
+W__sonar_lambda_C:\Users\21656\Music\projects\app\Providers\AppServiceProvider.php_24_30È
+Å
+ (
+
+%2"'illuminate\support\facades\gate::define*?
+
+__unknown_file (#"!
+illuminate\support\facades\gate*%
+
+__unknown_file (	
+admin*"
+
+__unknown_file (
+
+%1*
+2B$"
+ app\providers\appserviceproviderH

@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title','Mon Site Laravel')</title>
-    <style>
-        * {margin:0; padding:0; box-sizing:border-box;}
-        body {font-family:Arial;}
-        nav {background:#FF2D20; padding:20px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-        nav ul {list-style:none; display:flex; gap:20px;}
-        nav a {color:white; text-decoration:none; font-weight:bold; padding:10px 15px; border-radius:5px;}
-        nav a:hover {background: rgba(255,255,255,0.2);}
-        .container {max-width:1200px; margin:40px auto; padding:20px;}
-        footer {background:#333; color:white; text-align:center; padding:30px; margin-top:50px;}
-    </style>
-    @yield('styles')
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/about">À propos</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/tasks">Tâches</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        @yield('content')
-    </div>
-    <footer>
-        <p>&copy; {{ date('Y') }} Mon Site Laravel. Tous droits réservés.</p>
-    </footer>
-    @yield('scripts')
-</body>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @yield('styles')
+    </head>
+    <body class="font-sans antialiased">
+        <div class="flex h-screen bg-gray-50">
+            @include('layouts.navigation')
+
+            <!-- Main Content -->
+            <main class="flex-1 flex flex-col overflow-hidden">
+                <!-- Page Heading -->
+                @isset($header)
+                    <header class="bg-white border-b border-gray-200 shadow-sm hidden sm:block">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                @endisset
+
+                <!-- Page Content -->
+                <div class="flex-1 overflow-auto">
+                    @isset($slot)
+                        {{ $slot }}
+                    @endisset
+
+                    @yield('content')
+                </div>
+            </main>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,33 @@
+name: SonarQube
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  sonar:
+    name: Sonar Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: xdebug
+
+      - name: Install dependencies
+        run: composer install --no-progress
+
+      - name: Run tests with coverage
+        run: php artisan test --coverage-clover=coverage.xml
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

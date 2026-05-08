@@ -3,5 +3,5 @@ projectKey=mohamedkhelil_first-laravel-project
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.86952
 dashboardUrl=https://sonarcloud.io/dashboard?id=mohamedkhelil_first-laravel-project
-ceTaskId=AZ4JXPUJ9AznNwRb9zJv
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZ4JXPUJ9AznNwRb9zJv
+ceTaskId=AZ4JaKD3T_26BOH8JqUi
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZ4JaKD3T_26BOH8JqUi

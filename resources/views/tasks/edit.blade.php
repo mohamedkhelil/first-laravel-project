@@ -1,116 +1,64 @@
 @extends('layouts.app')
 
-@section('styles')
-<style>
-    .task-form-page {
-        max-width: 760px;
-        margin: 0 auto;
-    }
-
-    .task-form-card {
-        border: 1px solid #e5e7eb;
-        border-radius: 18px;
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-        overflow: hidden;
-    }
-
-    .task-form-card .card-header {
-        padding: 1.25rem 1.5rem;
-        background: linear-gradient(135deg, #0f172a, #1d4ed8);
-        color: #fff;
-        border-bottom: 0;
-    }
-
-    .task-form-card .card-header h4 {
-        margin: 0;
-        font-weight: 700;
-    }
-
-    .task-form-card .card-body {
-        padding: 1.5rem;
-        background: #fff;
-    }
-
-    .task-form-card .form-label,
-    .task-form-card label {
-        font-weight: 600;
-        color: #334155;
-        margin-bottom: .5rem;
-    }
-
-    .task-form-card .form-control,
-    .task-form-card input[type="text"],
-    .task-form-card textarea {
-        width: 100%;
-        border-radius: 12px;
-        border: 1px solid #dbe3ec;
-        padding: .8rem 1rem;
-        box-shadow: none;
-    }
-
-    .task-form-card .form-control:focus,
-    .task-form-card input[type="text"]:focus,
-    .task-form-card textarea:focus {
-        border-color: #2563eb;
-        outline: none;
-        box-shadow: 0 0 0 .2rem rgba(37, 99, 235, .12);
-    }
-
-    .task-check {
-        display: flex;
-        align-items: center;
-        gap: .6rem;
-        margin: 1rem 0 1.25rem;
-        color: #334155;
-        font-weight: 600;
-    }
-
-    .task-form-actions {
-        display: flex;
-        gap: .75rem;
-        flex-wrap: wrap;
-    }
-
-    .task-form-actions .btn {
-        border-radius: 999px;
-        padding: .7rem 1.1rem;
-        font-weight: 600;
-    }
-</style>
-@endsection
-
 @section('content')
-<div class="task-form-page">
-    <div class="card task-form-card">
-        <div class="card-header">
-            <h4>Modifier la tâche</h4>
+<div class="max-w-2xl mx-auto py-8 px-4">
+
+    <!-- Header -->
+    <div class="mb-6">
+        <h1 class="text-3xl font-bold text-gray-800">Modifier la tâche</h1>
+        <p class="text-gray-500 text-sm mt-1">Mettez à jour les détails de votre tâche</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
+
+        <!-- Card Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-6">
+            <h2 class="text-white text-xl font-bold">Détails de la tâche</h2>
         </div>
-        <div class="card-body">
-            <form action="{{ route('tasks.update', $task) }}" method="POST">
+
+        <!-- Card Body -->
+        <div class="p-6">
+            <form action="{{ route('tasks.update', $task) }}" method="POST" class="space-y-5">
                 @csrf
                 @method('PUT')
 
-                <div class="mb-3">
-                    <label for="title">Titre</label>
-                    <input type="text" id="title" name="title" value="{{ old('title', $task->title) }}">
+                <div>
+                    <label for="title" class="block text-sm font-semibold text-gray-700 mb-2">Titre</label>
+                    <input type="text"
+                           id="title"
+                           name="title"
+                           value="{{ old('title', $task->title) }}"
+                           class="w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition @error('title') border-red-500 @enderror">
                     @error('title')
-                    <div class="text-danger mt-2">{{ $message }}</div>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="mb-3">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" rows="5">{{ old('description', $task->description) }}</textarea>
+                <div>
+                    <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">Description</label>
+                    <textarea id="description"
+                              name="description"
+                              rows="5"
+                              class="w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition">{{ old('description', $task->description) }}</textarea>
                 </div>
 
-                <label class="task-check">
-                    <input type="checkbox" name="completed" {{ $task->completed ? 'checked' : '' }}>
-                    Marquer comme terminée
-                </label>
+                <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
+                    <input type="checkbox"
+                           id="completed"
+                           name="completed"
+                           class="w-4 h-4 text-blue-600 rounded"
+                           {{ $task->completed ? 'checked' : '' }}>
+                    <label for="completed" class="text-sm font-semibold text-gray-700">Marquer comme terminée</label>
+                </div>
 
-                <div class="task-form-actions">
-                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
-                    <a href="{{ route('tasks.index') }}" class="btn btn-secondary">Annuler</a>
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition shadow-sm">
+                        Mettre à jour
+                    </button>
+                    <a href="{{ route('tasks.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-6 py-3 rounded-lg transition shadow-sm">
+                        Annuler
+                    </a>
                 </div>
             </form>
         </div>

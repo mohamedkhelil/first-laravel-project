@@ -1,96 +1,60 @@
 @extends('layouts.app')
 
-@section('styles')
-<style>
-    .task-form-page {
-        max-width: 760px;
-        margin: 0 auto;
-    }
-
-    .task-form-card {
-        border: 1px solid #e5e7eb;
-        border-radius: 18px;
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-        overflow: hidden;
-    }
-
-    .task-form-card .card-header {
-        padding: 1.25rem 1.5rem;
-        background: linear-gradient(135deg, #0f172a, #1d4ed8);
-        color: #fff;
-        border-bottom: 0;
-    }
-
-    .task-form-card .card-header h4 {
-        margin: 0;
-        font-weight: 700;
-    }
-
-    .task-form-card .card-body {
-        padding: 1.5rem;
-        background: #fff;
-    }
-
-    .task-form-card .form-label,
-    .task-form-card label {
-        font-weight: 600;
-        color: #334155;
-        margin-bottom: .5rem;
-    }
-
-    .task-form-card .form-control {
-        border-radius: 12px;
-        border: 1px solid #dbe3ec;
-        padding: .8rem 1rem;
-        box-shadow: none;
-    }
-
-    .task-form-card .form-control:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 .2rem rgba(37, 99, 235, .12);
-    }
-
-    .task-form-actions {
-        display: flex;
-        gap: .75rem;
-        flex-wrap: wrap;
-        margin-top: .5rem;
-    }
-
-    .task-form-actions .btn {
-        border-radius: 999px;
-        padding: .7rem 1.1rem;
-        font-weight: 600;
-    }
-</style>
-@endsection
-
 @section('content')
-<div class="task-form-page">
-    <div class="card task-form-card">
-        <div class="card-header">
-            <h4>Nouvelle Tâche</h4>
+<div class="max-w-2xl mx-auto py-8 px-4">
+
+    <!-- Header -->
+    <div class="mb-6">
+        <h1 class="text-3xl font-bold text-gray-800">Nouvelle Tâche</h1>
+        <p class="text-gray-500 text-sm mt-1">Créez une nouvelle tâche pour gérer votre travail</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
+
+        <!-- Card Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-6">
+            <h2 class="text-white text-xl font-bold">Détails de la tâche</h2>
         </div>
-        <div class="card-body">
-            <form action="{{ route('tasks.store') }}" method="POST">
+
+        <!-- Card Body -->
+        <div class="p-6">
+
+            <form action="{{ route('tasks.store') }}" method="POST" class="space-y-5">
                 @csrf
-                <div class="mb-3">
-                    <label for="title">Titre *</label>
-                    <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}">
+
+                <div>
+                    <label for="title" class="block text-sm font-semibold text-gray-700 mb-2">Titre *</label>
+                    <input type="text"
+                           id="title"
+                           name="title"
+                           value="{{ old('title') }}"
+                           class="w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition @error('title') border-red-500 @enderror"
+                           placeholder="Entrez le titre de la tâche">
                     @error('title')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" class="form-control" rows="5">{{ old('description') }}</textarea>
+
+                <div>
+                    <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">Description</label>
+                    <textarea id="description"
+                              name="description"
+                              rows="5"
+                              class="w-full rounded-lg border border-gray-300 px-4 py-3 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+                              placeholder="Décrivez votre tâche...">{{ old('description') }}</textarea>
                 </div>
-                <div class="task-form-actions">
-                    <button type="submit" class="btn btn-success">Enregistrer</button>
-                    <a href="{{ route('tasks.index') }}" class="btn btn-secondary">Annuler</a>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition shadow-sm">
+                        Enregistrer
+                    </button>
+                    <a href="{{ route('tasks.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-6 py-3 rounded-lg transition shadow-sm">
+                        Annuler
+                    </a>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
-@endsection

@@ -1,29 +1,29 @@
 
 (app\http\controllers\pagecontroller::ageO
-EC:\Users\21656\Music\projects\app\Http\Controllers\PageController.phpZ Z("1*_
-2\ \(.K
+EC:\Users\21656\Music\projects\app\Http\Controllers\PageController.php] ]("1*_
+2_ _(.K
 I
-\ \(C
+_ _(C
 %2"__id*1
 
 __unknown_file (
 Vous Ãªtes majeur*
 4*_
-3\1 \(CK
+3_1 _(CK
 I
-\ \(C
+_ _(C
 %2"__id*1
 
 __unknown_file (
 Vous Ãªtes mineur*
 4*!
-4\C \(C"
-\ \(D
+4_C _(C"
+_ _(D
 
 %2*¢
-1\ \(DŠ
+1_ _(DŠ
 ‡
-\ \(
+_ _(
 %1"	__compare*"
 
 __unknown_file (
@@ -36,6 +36,6 @@ I
 __unknown_file (2*
 2
 3:
-Z Z(
+] ](
 $ageB'%
 #app\http\controllers\pagecontrollerH

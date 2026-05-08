@@ -1,0 +1,52 @@
+
+0app\http\requests\auth\loginrequest::throttlekeyO
+EC:\Users\21656\Music\projects\app\Http\Requests\Auth\LoginRequest.phpR R("1*‹
+1T T(V‡„
+T- T(C
+%1*C
+
+__unknown_file ('%
+#app\http\requests\auth\loginrequest*%
+
+__unknown_file (	
+email2stringŽ
+‹
+T" T(D
+%2"illuminate\support\str::lower*6
+
+__unknown_file ("
+illuminate\support\str*"
+
+__unknown_file (
+
+%1[Y
+TI T(T
+%3*C
+
+__unknown_file ('%
+#app\http\requests\auth\loginrequest2ipW
+U
+T" T(T
+%4"__concat*
+T" T(D
+
+%2*
+TE T(H
+|*
+TI T(T
+
+%3–
+“
+T T(U
+%5"%illuminate\support\str::transliterate*6
+
+__unknown_file ("
+illuminate\support\str*"
+
+__unknown_file (
+
+%4"
+T T(V
+
+%5B'%
+#app\http\requests\auth\loginrequestH

@@ -1,0 +1,68 @@
+
+app\models\user::casts;
+1C:\Users\21656\Music\projects\app\Models\User.php) )("1*£
+1+ 0(
+
++ 0(	
+%1"$Arrayû
+õ
++ 0(	
+%2"__mapSet*"
+
+__unknown_file (
+
+%1*1
+
+__unknown_file (
+email_verified_at*(
+
+__unknown_file (
+
+datetimeî
+ë
++ 0(	
+%3"__mapSet*"
+
+__unknown_file (
+
+%1*(
+
+__unknown_file (
+
+is_admin*'
+
+__unknown_file (	
+booleanï
+í
++ 0(	
+%4"__mapSet*"
+
+__unknown_file (
+
+%1*)
+
+__unknown_file (
+	is_active*'
+
+__unknown_file (	
+booleanì
+ê
++ 0(	
+%5"__mapSet*"
+
+__unknown_file (
+
+%1*(
+
+__unknown_file (
+
+password*&
+
+__unknown_file (
+
+hashed"
++ 0(
+
+
+%1B
+app\models\userH

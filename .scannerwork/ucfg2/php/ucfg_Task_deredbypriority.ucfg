@@ -1,0 +1,35 @@
+
+'app\models\task::scopeorderedbypriority;
+1C:\Users\21656\Music\projects\app\Models\Task.php' '(*"1*Ù
+1) )(|j
+h
+' '(*
+$query"__id*L
+
+__unknown_file (0
+.
+$query$illuminate\database\eloquent\builder¿¼
+) )({
+%1*&
+
+__unknown_file (
+
+
+$query*v
+
+__unknown_file (ZX
+VCASE priority WHEN 'haute' THEN 1 WHEN 'moyenne' THEN 2 WHEN 'basse' THEN 3 ELSE 4 END2
+orderbyrawb
+`
+) )(|*
+%2$illuminate\database\eloquent\builder"__id*"
+
+__unknown_file (
+
+%1"8
+) )(|,
+*
+%2$illuminate\database\eloquent\builder::
+'+ '(9.
+$query$illuminate\database\eloquent\builderB
+app\models\taskH

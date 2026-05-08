@@ -21,8 +21,20 @@ jobs:
           php-version: 8.2
           coverage: xdebug
 
-      - name: Install dependencies
+      - name: Install PHP dependencies
         run: composer install --no-progress
+
+      # ⭐ ADD THESE TWO STEPS
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Build Vite assets
+        run: |
+          npm ci
+          npm run build
 
       - name: Prepare Laravel
         run: |
